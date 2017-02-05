@@ -1,4 +1,11 @@
 ---
+- name: Add user to dialout group.
+  become: yes
+  user:
+    name: "{{ distractinator_user }}"
+    group: dialout
+    append: yes
+
 - name: Install distractinator pip package.
   pip:
     name: distractinator
