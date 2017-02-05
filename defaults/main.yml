@@ -4,4 +4,4 @@
 distractinator_user_install: yes
 
 # Username to configure installation for. Will be added to `dialout` group.
-distractinator_user: "{{ ansible_user|default(lookup('env', 'USER') }}"
+distractinator_user: "{{ ansible_user|default(lookup('env', 'USER')) }}"
