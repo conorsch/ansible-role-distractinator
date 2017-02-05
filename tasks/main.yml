@@ -3,7 +3,7 @@
   become: yes
   user:
     name: "{{ distractinator_user }}"
-    group: dialout
+    groups: dialout
     append: yes
 
 - name: Install distractinator pip package.
