@@ -5,7 +5,14 @@
     state: present
     user: "{{ distractinator_user_install }}"
 
-- name: Set up systemd service file for distractinatord.
+- name: Set up systemd service file for distractd.
   copy:
     src: distractd.service
     dest: ~/.config/systemd/user/distractd.service
+
+- name: Start distractd service.
+  systemd:
+    name: distractd
+    state: started
+    enabled: yes
+    user: "{{ distractinator_user_install }}"
