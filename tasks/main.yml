@@ -10,7 +10,8 @@
   pip:
     name: distractinator
     state: present
-    user: "{{ distractinator_user_install }}"
+    extra_args: "{{ '--user' if distractinator_user_install else '' }}"
+  when: "'VIRTUAL_ENV' not in ansible_env"
 
 - name: Set up systemd service file for distractd.
   copy:
