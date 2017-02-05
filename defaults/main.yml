@@ -1,0 +1,4 @@
+---
+# Whether pip package will be installed with `--user` flag.
+# Defaults to yes to be consistent with systemd user services.
+distractinator_user_install: yes

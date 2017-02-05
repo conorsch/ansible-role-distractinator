@@ -1,0 +1,8 @@
+[Unit]
+Description=Distractinator Service Daemon
+
+[Service]
+ExecStart=/usr/bin/python %h/.local/bin/distractd
+
+[Install]
+WantedBy=default.target

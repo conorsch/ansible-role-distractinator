@@ -1,0 +1,11 @@
+---
+- name: Install distractinator pip package.
+  pip:
+    name: distractinator
+    state: present
+    user: "{{ distractinator_user_install }}"
+
+- name: Set up systemd service file for distractinatord.
+  copy:
+    src: distractd.service
+    dest: ~/.config/systemd/user/distractd.service
