@@ -19,6 +19,15 @@
     dest: "{{ distractinator_custom_events_dest }}"
   when: distractinator_custom_events_src
 
+- name: Update config file with custom events path.
+  ini_file:
+    dest: "~{{ distractinator_user }}/.distractinator.conf"
+    section: notifier
+    option: custom_script
+    value: "{{ distractinator_custom_events_dest }}"
+    # Might fail on first run if create=no...
+    create: no
+
 - name: Set up systemd service file for distractd.
   copy:
     src: distractd.service
