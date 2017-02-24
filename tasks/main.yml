@@ -13,6 +13,12 @@
     extra_args: "{{ '--user' if distractinator_user_install else '' }}"
   when: "'VIRTUAL_ENV' not in ansible_env"
 
+- name: Copy custom events file.
+  copy:
+    src: "{{ distractinator_custom_events_src }}"
+    dest: "{{ distractinator_custom_events_dest }}"
+  when: distractinator_custom_events_src
+
 - name: Set up systemd service file for distractd.
   copy:
     src: distractd.service
