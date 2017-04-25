@@ -12,4 +12,4 @@ distractinator_custom_events_src: ''
 
 # Path on remote host where custom events file is stored.
 # File must be named "custom_events.py".
-distractinator_custom_events_dest: "~{{ distractinator_user }}/.distractinator/custom_events.py"
+distractinator_custom_events_dest: "~{{ distractinator_user }}/.distractinator/customevents.py"
