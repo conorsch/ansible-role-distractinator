@@ -1,0 +1,6 @@
+---
+- name: restart distractd
+  systemd:
+    name: distractd
+    state: restarted
+    user: "{{ distractinator_user_install }}"

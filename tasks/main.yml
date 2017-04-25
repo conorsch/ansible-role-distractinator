@@ -24,6 +24,7 @@
     src: "{{ distractinator_custom_events_src }}"
     dest: "{{ distractinator_custom_events_dest }}"
   when: distractinator_custom_events_src != ''
+  notify: restart distractd
 
 - name: Update config file with custom events path.
   ini_file:
@@ -33,6 +34,7 @@
     value: "{{ distractinator_custom_events_dest|expanduser}}"
     # Might fail on first run if create=no...
     create: no
+  notify: restart distractd
 
 - name: Set up systemd service file for distractd.
   copy:
