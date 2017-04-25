@@ -13,11 +13,17 @@
     extra_args: "{{ '--user' if distractinator_user_install else '' }}"
   when: "'VIRTUAL_ENV' not in ansible_env"
 
+- name: Create custom events config directory.
+  file:
+    path: "{{ distractinator_custom_events_dest|dirname }}"
+    state: directory
+  when: distractinator_custom_events_src != ''
+
 - name: Copy custom events file.
   copy:
     src: "{{ distractinator_custom_events_src }}"
     dest: "{{ distractinator_custom_events_dest }}"
-  when: distractinator_custom_events_src
+  when: distractinator_custom_events_src != ''
 
 - name: Update config file with custom events path.
   ini_file:

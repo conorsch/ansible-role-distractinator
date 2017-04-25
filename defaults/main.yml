@@ -8,8 +8,8 @@ distractinator_user: "{{ ansible_user|default(lookup('env', 'USER')) }}"
 
 # Path to Python library defining custom actions. Absent by default.
 # Create a custom .py file and provide the path (local to controller).
-distractinator_custom_events_src: None
+distractinator_custom_events_src: ''
 
 # Path on remote host where custom events file is stored.
 # File must be named "custom_events.py".
-distractinator_custom_events_dest: "~{{ distractinator_user }}/.distractintor/custom_events.py"
+distractinator_custom_events_dest: "~{{ distractinator_user }}/.distractinator/custom_events.py"
