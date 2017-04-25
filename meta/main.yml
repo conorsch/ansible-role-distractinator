@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author:
+    - Conor Schaefer (@conorsch)
+  description: Configure Distractinator notification daemon.
+  license: MIT
+  min_ansible_version: 2.3
+  platforms:
+  - name: Debian
+    versions:
+      - jessie
+      - stretch
+  categories:
+    - cloud
+    - packaging
+    - system
+dependencies: []
