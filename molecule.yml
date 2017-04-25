@@ -1,4 +1,6 @@
 ---
+ansible:
+  sudo: no
 dependency:
   name: galaxy
 driver:
