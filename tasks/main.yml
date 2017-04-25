@@ -34,10 +34,17 @@
     value: "{{ distractinator_custom_events_dest|expanduser}}"
   notify: restart distractd
 
+- name: Create systemd user config directory for distractd.
+  file:
+    path: "{{ ('~'+distractinator_user+'/.config/systemd/user/distractd.service')|expanduser }}"
+    state: directory
+  when: distractinator_user_install
+
 - name: Set up systemd service file for distractd.
   copy:
     src: distractd.service
-    dest: ~/.config/systemd/user/distractd.service
+    dest: "{{ ('~'+distractinator_user+'/.config/systemd/user/distractd.service')|expanduser }}"
+  when: distractinator_user_install
 
 - name: Start distractd service.
   systemd:
