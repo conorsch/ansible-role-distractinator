@@ -36,7 +36,7 @@
 
 - name: Create systemd user config directory for distractd.
   file:
-    path: "{{ ('~'+distractinator_user+'/.config/systemd/user/distractd.service')|expanduser }}"
+    path: "{{ ('~'+distractinator_user+'/.config/systemd/user')|expanduser }}"
     state: directory
   when: distractinator_user_install
 
